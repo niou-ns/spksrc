@@ -50,6 +50,11 @@ x64_ARCHES = apollolake avoton braswell broadwell broadwellnk bromolow cedarview
 x64_ARCHES += wdpro wddl wdx64
 >>>>>>> Added WD DLx100, WD PRx100 and WD x64 kernel and toolchain
 
+wddl_MODELS = Sprite:05:DL4100 Aurora:06:DL2100
+wdpro_MODELS = BlackCy:07:PR4100 BryceCy:08:PR2100
+wdx64_MODELS = $(wddl_MODELS) $(wdpro_MODELS)
+wdarm_MODELS = Lightni:00:EX4 GrandTe:01:EX2Ultra KingsCa:01:EX2 Glacier:02:MyCloud Yellow:03:EX4100 Yosemite:04:EX2100
+
 # Load local configuration
 LOCAL_CONFIG_MK = ../../local.mk
 ifneq ($(wildcard $(LOCAL_CONFIG_MK)),)
