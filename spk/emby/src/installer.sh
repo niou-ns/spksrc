@@ -6,7 +6,7 @@ DNAME="Emby"
 
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
-TMP_DIR="${SYNOPKG_PKGDEST}/../../.systemfile"
+TMP_DIR="/shares/Volume_1/.systemfile"
 INSTALL_LOG="${INSTALL_DIR}/var/install.log"
 SSS="/var/packages/${PACKAGE}/scripts/start-stop-status"
 PATH="${INSTALL_DIR}/bin:${PATH}"
@@ -91,7 +91,7 @@ clean ()
 	#	${SERVICETOOL} --remove-configure-file --package ${PACKAGE}.sc >> /dev/null
 	#fi
 
-	APPDIR=$1
+	APPDIR=$(readlink -f $1)
 	rm -rf /var/www/${PKGNAME}
 }
 
@@ -103,7 +103,7 @@ remove ()
 	rm -f ${INSTALL_DIR}
 
 	# Remove package
-	APPDIR=$1
+	APPDIR=$(readlink -f $1)
 	rm -rf ${APPDIR}
 }
 
