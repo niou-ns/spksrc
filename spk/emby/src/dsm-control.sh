@@ -28,25 +28,17 @@ start_daemon ()
 
 stop_daemon ()
 {
-	if [ -e ${PID_FILE} ]; then
-		kill $(cat ${PID_FILE})
-		wait_for_status 1 20 || kill -9 $(cat ${PID_FILE})
-		rm ${PID_FILE}
-	fi
-	# kill anything emby related
-	PID=$(ps w | grep [E]mbyServer.exe | awk '{print $1}')
-	if [ $PID -ne "" ]; then
+	# kill emby main thread
+	PID=$(ps w | grep "[E]mby Main" | awk '{print $1}')
+	if [ $PID != "" ]; then
 		kill $PID
+		wait_for_status 1 20 || kill -9 $PID
 	fi
 }
 
 daemon_status ()
 {
-	if [ -e ${PID_FILE} ]; then
-		kill -0 $(cat ${PID_FILE})
-		return $?
-	fi
-	return 1
+    ps w | grep "[E]mby Main"
 }
 
 wait_for_status ()
