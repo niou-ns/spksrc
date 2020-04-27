@@ -5,7 +5,7 @@ PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = https://sourceforge.net/projects/dsgpl/files/toolkit/DSM6.1
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
-DEPENDS =
+DEPENDS = 
 REQUIRED_DSM = 6.1
 UNSUPPORTED_ARCHS = $(ARM_ARCHES) $(PPC_ARCHES) $(x64_ARCHES)
 
@@ -22,7 +22,7 @@ include ../../mk/spksrc.cross-cc.mk
 
 .PHONY: ds.evansport_custom_extract
 
-ds.evansport_custom_extract:
+ds.evansport_custom_extract: 
 	cd $(PKG_WORK_DIR) && env $(ENV) mkdir --parents $(INSTALL_DIR)/$(INSTALL_PREFIX)/include
 	cd $(PKG_WORK_DIR) && env $(ENV) mkdir --parents $(INSTALL_DIR)/$(INSTALL_PREFIX)/lib
 	cd $(PKG_WORK_DIR) && env $(ENV) tar -C $(INSTALL_DIR)/$(INSTALL_PREFIX)/include \
