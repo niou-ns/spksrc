@@ -1,5 +1,5 @@
 SPK_NAME = emby
-SPK_VERS = 4.2.1.0
+SPK_VERS = 4.4.2.0
 SPK_REV = 10
 SPK_ICON = src/emby.png
 DSM_UI_DIR = app
